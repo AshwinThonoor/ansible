@@ -1,0 +1,12 @@
+---
+- name: looping
+  hosts: all
+  become: yes
+  tasks:
+   - name: Add several users on nodes
+     ansible.builtin.user:
+      name: name
+      state: present
+      - testuser1
+      - testuser2
+      - ashwin

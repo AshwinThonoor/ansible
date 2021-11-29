@@ -1,0 +1,12 @@
+---
+- name: Create a new file and delete it.
+  hosts: all
+  tasks:
+  - name: Create username file in tmp directory.
+    file:
+     path: '/tmp/ashwin.txt'
+     state: touch
+  - name: copy ansible hosts file on all node
+    copy:
+     src: '/etc/ansible/hosts'
+     dest: '/tmp'

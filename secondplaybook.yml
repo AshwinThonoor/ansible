@@ -1,0 +1,13 @@
+---
+- name: install httpd packages and list git configs
+  hosts: all
+  become: yes #for root user
+  tasks:
+   - name: Install apache httpd
+     apt:
+      name: apache2
+      state: present
+   - name: Read all the values from git config
+     community.general.git_config:
+      list_all: yes
+      scope: global 
